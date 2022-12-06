@@ -1,9 +1,11 @@
 export const links = [
   {
+    id: 1,
     name: "RECURSOS",
     submenu: true,
     sublinks: [
       {
+        id: 1,
         Head: "TITULO 1",
         sublink: [
           { name: "Página 1", link: "/" },

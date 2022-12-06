@@ -7,9 +7,9 @@ const NavLinks = () => {
   const [subHeading, setSubHeading] = useState("");
 
   return (
-    <>
+    <div>
       {links.map((link) => (
-        <div key={link.name}>
+        <div key={link.id}>
           <div className="px-3 text-left md:cursor-pointer group">
             <h1
               className="py-7 flex justify-between items-center md:pr-0 pr-5 group"
@@ -41,7 +41,7 @@ const NavLinks = () => {
                   </div>
                   <div className="bg-dark p-5 grid grid-cols-3 gap-10">
                     {link.sublinks.map((mysublinks) => (
-                      <div key={mysublinks.Head}>
+                      <div key={mysublinks.id}>
                         <h1 className="text-lg font-semibold">
                           {mysublinks.Head}
                         </h1>
@@ -113,7 +113,7 @@ const NavLinks = () => {
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 

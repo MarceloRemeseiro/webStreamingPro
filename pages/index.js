@@ -6,12 +6,44 @@ import AddsLaterales from "../components/adds/add";
 import Header from "../components/header/header";
 import Image from "next/image";
 import TarjetaDerecha from "../components/tarjetas/tarjetaDerecha";
-import { GridTarjetas } from "../components/tarjetas/gridTarjetas";
+import TarjetasProyectos from "../components/tarjetas/TarjetasProyectos";
 import VideoHome from "../components/videos/videoHome";
 import Galeria from "../components/galería/galeria";
 import CaracteristicasTarjetas from "../components/tarjetas/caracteristicasTarjetas";
+import React, { useEffect } from "react";
+import { Client } from "@notionhq/client";
 
-export default function Home({ dataflex, dataSoloQ }) {
+export async function getStaticProps() {
+  const notion = new Client({ auth: process.env.NOTION_API_KEY });
+
+  const respuesta1 = await notion.databases.query({
+    database_id: "8b30f650340c4170a4d7bd4c48d9784f",
+  });
+  const respuesta2 = await notion.databases.query({
+    database_id: "7ced0ded2aec437a9b13b59cd18c2a96",
+  });
+  const respuesta3 = await notion.databases.query({
+    database_id: "3fc6313684754f09802be2a6577f303a",
+  });
+
+  return {
+    props: {
+      dataProyectos: respuesta1.results,
+      dataVideos: respuesta2.results,
+      dataFotos: respuesta3.results,
+    },
+  };
+}
+
+export default function Home({ dataProyectos, dataVideos, dataFotos }) {
+  useEffect(() => {
+    console.log(dataProyectos);
+    console.log(dataVideos);
+    console.log(dataFotos);
+  });
+  const videoPortada = dataVideos[0].properties.link.url;
+  const linkVideo = "https://www.youtube.com/embed/" + videoPortada.slice(-11);
+
   return (
     <div>
       <Head>
@@ -33,23 +65,33 @@ export default function Home({ dataflex, dataSoloQ }) {
           <TarjetaDerecha
             foto="https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
             titulo="Bienvenidos a mi página Web"
-            descripcion={<text>Soy Marcelo Remeseiro y tengo una pasión por la tecnología audiovisual.<br/> En mi canal de Youtube, comparto mis conocimientos y experiencias en el mundo del audio y video profesional, 
-            con énfasis en herramientas como OBS, vMix y Blackmagic. También hablo de todo lo relacionado con el streaming en vivo, desde la configuración de una transmisión hasta la producción de contenido de alta calidad.<br/>
-            Si te interesa el mundo del audio y video profesional, o si quieres aprender más sobre el streaming en vivo, no dudes en visitar mi canal de Youtube y suscríbete para recibir contenido actualizado. <br/>¡Me encantaría tenerte como parte de mi comunidad!</text>}
+            descripcion={
+              <text>
+                Soy Marcelo Remeseiro y tengo una pasión por la tecnología
+                audiovisual.
+                <br /> En mi canal de Youtube, comparto mis conocimientos y
+                experiencias en el mundo del audio y video profesional, con
+                énfasis en herramientas como OBS, vMix y Blackmagic. También
+                hablo de todo lo relacionado con el streaming en vivo, desde la
+                configuración de una transmisión hasta la producción de
+                contenido de alta calidad.
+                <br />
+                Si te interesa el mundo del audio y video profesional, o si
+                quieres aprender más sobre el streaming en vivo, no dudes en
+                visitar mi canal de Youtube y suscríbete para recibir contenido
+                actualizado. <br />
+                ¡Me encantaría tenerte como parte de mi comunidad!
+              </text>
+            }
             firma="Marcelo Remeseiro"
             cargo="Technical Manager"
           />
-          <GridTarjetas />
-          <VideoHome tituloVideo="Título del video" video={"https://www.youtube.com/embed/7VUcEoR9dI0"} />
-          {/* <TarjetaDerecha 
-            foto="https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-            titulo="Bienvenidos a mi página Web"
-            descripcion={<text>Soy Marcelo Remeseiro y tengo una pasión por la tecnología audiovisual.<br/> En mi canal de Youtube, comparto mis conocimientos y experiencias en el mundo del audio y video profesional, 
-            con énfasis en herramientas como OBS, vMix y Blackmagic. También hablo de todo lo relacionado con el streaming en vivo, desde la configuración de una transmisión hasta la producción de contenido de alta calidad.<br/>
-            Si te interesa el mundo del audio y video profesional, o si quieres aprender más sobre el streaming en vivo, no dudes en visitar mi canal de Youtube y suscríbete para recibir contenido actualizado. <br/>¡Me encantaría tenerte como parte de mi comunidad!</text>}
-            firma="Marcelo Remeseiro"
-            cargo="Technical Manager"/> */}
-          <CaracteristicasTarjetas  />
+          <TarjetasProyectos data={dataProyectos} />
+          <VideoHome
+            tituloVideo={dataVideos[0].properties.titulo.title[0].plain_text}
+            video={linkVideo}
+          />
+          <CaracteristicasTarjetas />
           <Galeria />
         </div>
 
