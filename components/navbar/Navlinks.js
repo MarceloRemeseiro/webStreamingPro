@@ -8,8 +8,8 @@ const NavLinks = () => {
 
   return (
     <div>
-      {links.map((link) => (
-        <div key={link.id}>
+      {links.map((link, index) => (
+        <div key={link.index}>
           <div className="px-3 text-left md:cursor-pointer group">
             <h1
               className="py-7 flex justify-between items-center md:pr-0 pr-5 group"
@@ -32,22 +32,22 @@ const NavLinks = () => {
             </h1>
             {link.submenu && (
               <div>
-                <div className="absolute top-20 hidden group-hover:md:block hover:md:block">
+                <div className="absolute top-14 hidden group-hover:md:block hover:md:block">
                   <div className="py-3">
                     <div
                       className="w-4 h-4 left-3 absolute 
                     mt-1 bg-dark rotate-45"
                     ></div>
                   </div>
-                  <div className="bg-dark p-5 grid grid-cols-3 gap-10">
-                    {link.sublinks.map((mysublinks) => (
-                      <div key={mysublinks.id}>
+                  <div className="bg-dark p-5 grid grid-cols-1">
+                    {link.sublinks.map((mysublinks, index) => (
+                      <div key={mysublinks.index}>
                         <h1 className="text-lg font-semibold">
                           {mysublinks.Head}
                         </h1>
-                        {mysublinks.sublink.map((slink) => (
+                        {mysublinks.sublink.map((slink, index) => (
                           <li
-                            key={slink.name}
+                            key={slink.index}
                             className="text-sm text-white my-2.5"
                           >
                             <Link href={slink.link}>

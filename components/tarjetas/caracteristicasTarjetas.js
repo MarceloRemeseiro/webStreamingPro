@@ -9,7 +9,8 @@ function CaracteristicasTarjetas() {
           <span className="underline decoration-secondary">Habilidades</span>
         </h1>
         <p className="mt-4 text-white xl:mt-6 dark:text-gray-300">
-          La experiencia en el mundo audiovisual me ha llevado a desarrollar estas 3 habilidades
+          La experiencia en el mundo audiovisual me ha llevado a desarrollar
+          estas 3 habilidades
         </p>
         <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
           <div className="p-8 space-y-3 border-2 border-seconday rounded-xl">
@@ -36,30 +37,15 @@ function CaracteristicasTarjetas() {
               </svg>
             </span>
             <h1 className="text-2xl font-semibold text-white capitalize dark:text-white">
-            Técnico audiovisual
+              Técnico audiovisual
             </h1>
             <p className="text-white dark:text-gray-300">
-            Como técnico audiovisual, me destaco por mi conocimiento profundo de la tecnología y mis habilidades técnicas para configurar y utilizar el equipo de manera eficiente. Esto me permite resolver problemas técnicos y garantizar una calidad óptima en el contenido audiovisual producido.
+              Como técnico audiovisual, me destaco por mi conocimiento profundo
+              de la tecnología y mis habilidades técnicas para configurar y
+              utilizar el equipo de manera eficiente. Esto me permite resolver
+              problemas técnicos y garantizar una calidad óptima en el contenido
+              audiovisual producido.
             </p>
-            <a
-              href="#"
-              className="inline-flex p-2 text-secondary capitalize transition-colors duration-300 transform bg-blue-100 rounded-full rtl:-scale-x-100 dark:bg-secondary dark:text-white hover:underline hover:text-blue-600 dark:hover:text-secondary"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </a>
           </div>
           <div className="p-8 space-y-3 border-2 border-seconday dark:border-blue-300 rounded-xl">
             <span className="inline-block text-secondary dark:text-seconday">
@@ -79,30 +65,15 @@ function CaracteristicasTarjetas() {
               </svg>
             </span>
             <h1 className="text-2xl font-semibold text-white capitalize dark:text-white">
-            Realizador audiovisual
+              Realizador audiovisual
             </h1>
             <p className="text-white dark:text-gray-300">
-            Además de mis habilidades técnicas, también tengo una visión creativa y soy capaz de contribuir con ideas y sugerencias en la producción de contenido audiovisual. Esto me permite desempeñarme como realizador audiovisual y aportar mi visión y mi creatividad a los proyectos en los que trabajo.
+              Además de mis habilidades técnicas, también tengo una visión
+              creativa y soy capaz de contribuir con ideas y sugerencias en la
+              producción de contenido audiovisual. Esto me permite desempeñarme
+              como realizador audiovisual y aportar mi visión y mi creatividad a
+              los proyectos en los que trabajo.
             </p>
-            <a
-              href="#"
-              className="inline-flex p-2 text-secondary capitalize transition-colors duration-300 transform bg-blue-100 rounded-full rtl:-scale-x-100 dark:bg-secondary dark:text-white hover:underline hover:text-blue-600 dark:hover:text-secondary"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </a>
           </div>
           <div className="p-8 space-y-3 border-2 border-seconday dark:border-blue-300 rounded-xl">
             <span className="inline-block text-secondary dark:text-seconday">
@@ -122,30 +93,15 @@ function CaracteristicasTarjetas() {
               </svg>
             </span>
             <h1 className="text-2xl font-semibold text-white capitalize dark:text-white">
-            Gestión de proyectos
+              Gestión de proyectos
             </h1>
             <p className="text-white dark:text-gray-300">
-            También me destaco por mi habilidad para gestionar proyectos audiovisuales a nivel organizativo. Me encargo de planificar y organizar el trabajo del equipo de manera eficiente, para asegurar que se cumplan los plazos y se alcancen los objetivos establecidos.
+              También me destaco por mi habilidad para gestionar proyectos
+              audiovisuales a nivel organizativo. Me encargo de planificar y
+              organizar el trabajo del equipo de manera eficiente, para asegurar
+              que se cumplan los plazos y se alcancen los objetivos
+              establecidos.
             </p>
-            <a
-              href="#"
-              className="inline-flex p-2 text-secondary capitalize transition-colors duration-300 transform bg-blue-100 rounded-full rtl:-scale-x-100 dark:bg-secondary dark:text-white hover:underline hover:text-blue-600 dark:hover:text-secondary"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </a>
           </div>
         </div>
       </div>

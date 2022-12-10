@@ -1,18 +1,17 @@
 export const links = [
   {
     id: 1,
-    name: "RECURSOS",
+    name: "Software",
     submenu: true,
     sublinks: [
       {
         id: 1,
-        Head: "TITULO 1",
+        Head: "",
         sublink: [
-          { name: "Página 1", link: "/" },
-          { name: "Página 2", link: "/" },
-          { name: "Página 3", link: "/" },
-          { name: "Página 4", link: "/" },
-          { name: "Página 5", link: "/" },
+          { name: "OBS", link: "/obs" },
+          { name: "vmix", link: "/vmix" },
+          { name: "bitfocus companion", link: "/companion" },
+          { name: "Davinci Resolve", link: "/davinci" },
         ],
       },
     ],

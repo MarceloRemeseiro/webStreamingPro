@@ -13,11 +13,11 @@ const TarjetasProyectos = ({ data }) => {
           Aqui los 3 Proyectos mas destacados de mi carrera
         </p>
         <div className="container grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
-          {data.map((datos) => (
-            <div key={datos.id}>
+          {data.map((datos, index) => (
+            <div key={index}>
               <Image
                 className="object-cover w-full rounded-lg h-96 "
-                src={datos.properties.foto.url}
+                src={datos.properties.foto.files[0].file.url}
                 alt=""
                 width={384}
                 height={384}
@@ -29,6 +29,8 @@ const TarjetasProyectos = ({ data }) => {
                 <a
                   className="mt-2 text-lg tracking-wider text-secondary uppercase dark:text-secondary "
                   href={datos.properties.link.url}
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   Ver mas
                 </a>

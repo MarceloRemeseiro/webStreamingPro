@@ -18,12 +18,24 @@ export async function getStaticProps() {
 
   const respuesta1 = await notion.databases.query({
     database_id: "8b30f650340c4170a4d7bd4c48d9784f",
+    filter: {
+      property: "web",
+      checkbox: {
+        equals: true,
+      },
+    },
   });
   const respuesta2 = await notion.databases.query({
     database_id: "7ced0ded2aec437a9b13b59cd18c2a96",
   });
   const respuesta3 = await notion.databases.query({
     database_id: "3fc6313684754f09802be2a6577f303a",
+    filter: {
+      property: "web",
+      checkbox: {
+        equals: true,
+      },
+    },
   });
 
   return {
@@ -37,12 +49,9 @@ export async function getStaticProps() {
 
 export default function Home({ dataProyectos, dataVideos, dataFotos }) {
   useEffect(() => {
-    console.log(dataProyectos);
     console.log(dataVideos);
-    console.log(dataFotos);
   });
   const videoPortada = dataVideos[0].properties.link.url;
-  const linkVideo = "https://www.youtube.com/embed/" + videoPortada.slice(-11);
 
   return (
     <div>
@@ -63,7 +72,7 @@ export default function Home({ dataProyectos, dataVideos, dataFotos }) {
         </div>
         <div className="container">
           <TarjetaDerecha
-            foto="https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+            foto="/foto.jpeg"
             titulo="Bienvenidos a mi página Web"
             descripcion={
               <text>
@@ -87,12 +96,9 @@ export default function Home({ dataProyectos, dataVideos, dataFotos }) {
             cargo="Technical Manager"
           />
           <TarjetasProyectos data={dataProyectos} />
-          <VideoHome
-            tituloVideo={dataVideos[0].properties.titulo.title[0].plain_text}
-            video={linkVideo}
-          />
+          <VideoHome data={dataVideos} />
           <CaracteristicasTarjetas />
-          <Galeria />
+          <Galeria data={dataFotos} />
         </div>
 
         <Footer />

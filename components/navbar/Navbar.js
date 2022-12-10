@@ -28,7 +28,7 @@ const Navbar = () => {
               <ion-icon name={`${open ? "close" : "menu"}`}></ion-icon>
             </div>
           </div>
-          <ul className="md:flex hidden uppercase items-center gap-8 font-[Poppins] ">
+          <ul className="md:flex hidden uppercase items-center gap-7 font-[Poppins] ">
             <li>
               <Link href="/">
                 <a className="py-7 px-3 inline-block hover:text-secondary">
@@ -39,18 +39,17 @@ const Navbar = () => {
             <li>
               <Link href="blog">
                 <a className="py-7 px-3 inline-block hover:text-secondary">
-                  Blog
+                  Hardware
                 </a>
               </Link>{" "}
             </li>
-            <li>
-              <Link href="youtube">
-                <a className="py-7 px-3 inline-block hover:text-secondary">
-                  Youtube
-                </a>
-              </Link>{" "}
-            </li>
+            <li></li>
             <NavLinks />
+            <Link href="youtube">
+              <a className="py-7 px-3 inline-block hover:text-secondary">
+                Youtube
+              </a>
+            </Link>{" "}
           </ul>
           <div className="md:block hidden">
             <BasicButton>Contacta</BasicButton>

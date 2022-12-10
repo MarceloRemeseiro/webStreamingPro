@@ -1,22 +1,38 @@
 import React from "react";
+import Image from "next/image";
 
-const VideoHome = ({ video, tituloVideo }) => {
+const VideoHome = ({ data }) => {
   return (
     <section>
       <div className="container px-6 py-10 mx-auto ">
         <h1 className="text-3xl font-semibold text-white capitalize lg:text-4xl dark:text-white">
           Video destacado
-          <br /> {tituloVideo}{" "}
-          <span className="text-secondary">Canal @streaming-pro</span>
+          <br /> {data[0].properties.titulo.rollup.array[0].title[0].plain_text}
         </h1>
-
-        <iframe
-          className="mt-12 container w-full aspect-[16/9] "
-          src={video}
-          frameBorder="0"
-          allow="autoplay; fullscreen"
-          allowFullScreen=""
-        ></iframe>
+        <a
+          href={data[0].properties.link.rollup.array[0].url}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div className="relative">
+            <Image
+              width="1920px"
+              height="1080px"
+              layout="responsive"
+              src={data[0].properties.miniatura.files[0].file.url}
+              alt="Ultimo video"
+            />
+            <div className="absolute bottom-6 right-6 md:w-32 w-16">
+              <Image
+                width="1000px"
+                height="800px"
+                layout="responsive"
+                src={data[0].properties.logo.files[0].file.url}
+                alt="Ultimo video"
+              />
+            </div>
+          </div>
+        </a>
 
         <div className="mt-4">
           <h1 className="text-2xl font-semibold text-white capitalize lg:text-3xl dark:text-white">

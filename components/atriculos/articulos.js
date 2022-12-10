@@ -1,47 +1,39 @@
 import React from "react";
+import Image from "next/image";
 
-function Articulos() {
+function Articulos(data) {
+  console.log(data);
   return (
     <>
       {/* component */}
       <div className="flex justify-center items-center">
-        {/*- more free and premium Tailwind CSS components at https://tailwinduikit.com/ -*/}
-        <div className="2xl:mx-auto 2xl:container lg:px-20 lg:py-16 md:py-12 md:px-6 py-9 px-4 w-96 sm:w-auto">
-          <div
-            role="main"
-            className="flex flex-col items-center justify-center"
-          >
-            <h1 className="text-4xl font-semibold leading-9 text-center text-white dark:text-gray-50">
-              Articulos interesantes{" "}
-            </h1>
-            <p className="text-base leading-normal text-center text-white dark:text-white mt-4 lg:w-1/2 md:w-10/12 w-11/12">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatem nisi cupiditate dolores laborum facilis autem excepturi
-              molestiae sit dolore eius, nulla iure aliquam! Iure temporibus cum
-              ex sequi modi nobis.
-            </p>
-          </div>
+        <div className="2xl:mx-auto 2xl:container lg:px-20 lg:py-2 md:py-12 md:px-6 py-9 px-4 w-96 sm:w-auto">
           <div className="lg:flex items-stretch md:mt-12 mt-8">
             <div className="lg:w-1/2">
-              <div className="sm:flex items-center justify-between xl:gap-x-8 gap-x-6">
-                <div className="sm:w-1/2 relative">
+              <div className="sm:flex items-center justify-between  xl:gap-x-8 gap-x-6">
+                <div className="sm:w-1/2 relative ">
                   <div>
-                    <p className="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">
-                      12 April 2021
-                    </p>
-                    <div className="absolute bottom-0 left-0 p-6">
-                      <h2 className="text-xl font-semibold 5 text-white">
-                        The Decorated Ways
+                    <div className="absolute bottom-0 left-0 p-6 z-10 ">
+                      <h2 className="text-lg font-semibold 5 text-white">
+                        {
+                          data.data.dataHardware[0].properties.titulo.title[0]
+                            .plain_text
+                        }
                       </h2>
-                      <p className="text-base leading-4 text-white mt-2">
-                        Dive into minimalism
+                      <p className="text-base leading-4 text-white mt-2 ">
+                        {
+                          data.data.dataHardware[0].properties.subtitulo
+                            .rich_text[0].plain_text
+                        }
                       </p>
                       <a
-                        href="javascript:void(0)"
+                        href={data.data.dataHardware[0].properties.link.url}
+                        target="_blank"
+                        rel="noreferrer"
                         className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
                       >
                         <p className="pr-2 text-sm font-medium leading-none">
-                          Read More
+                          COMPRAR
                         </p>
                         <svg
                           className="fill-stroke"
@@ -62,30 +54,40 @@ function Articulos() {
                       </a>
                     </div>
                   </div>
-                  <img
-                    src="https://i.ibb.co/DYxtCJq/img-1.png"
-                    className="w-full"
-                    alt="chair"
+                  <Image
+                    className="object-cover w-full rounded-lg h-96 "
+                    src={
+                      data.data.dataHardware[0].properties.foto.files[0].file
+                        .url
+                    }
+                    alt="Articulo"
+                    width={400}
+                    height={350}
                   />
                 </div>
                 <div className="sm:w-1/2 sm:mt-0 mt-4 relative">
                   <div>
-                    <p className="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">
-                      12 April 2021
-                    </p>
-                    <div className="absolute bottom-0 left-0 p-6">
+                    <div className="absolute bottom-0 left-0 p-6 z-10">
                       <h2 className="text-xl font-semibold 5 text-white">
-                        The Decorated Ways
+                        {
+                          data.data.dataHardware[1].properties.titulo.title[0]
+                            .plain_text
+                        }
                       </h2>
                       <p className="text-base leading-4 text-white mt-2">
-                        Dive into minimalism
+                        {
+                          data.data.dataHardware[1].properties.subtitulo
+                            .rich_text[0].plain_text
+                        }
                       </p>
                       <a
-                        href="javascript:void(0)"
+                        href={data.data.dataHardware[1].properties.link.url}
+                        target="_blank"
+                        rel="noreferrer"
                         className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
                       >
                         <p className="pr-2 text-sm font-medium leading-none">
-                          Read More
+                          COMPRAR
                         </p>
                         <svg
                           className="fill-stroke"
@@ -106,31 +108,41 @@ function Articulos() {
                       </a>
                     </div>
                   </div>
-                  <img
-                    src="https://i.ibb.co/3C5HvxC/img-2.png"
-                    className="w-full"
-                    alt="wall design"
+                  <Image
+                    src={
+                      data.data.dataHardware[1].properties.foto.files[0].file
+                        .url
+                    }
+                    className="object-cover w-full rounded-lg h-96"
+                    alt="Articulo1"
+                    width={400}
+                    height={350}
                   />
                 </div>
               </div>
               <div className="relative">
                 <div>
-                  <p className="md:p-10 p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">
-                    12 April 2021
-                  </p>
-                  <div className="absolute bottom-0 left-0 md:p-10 p-6">
+                  <div className="absolute bottom-0 left-0 md:p-10 p-6 z-10">
                     <h2 className="text-xl font-semibold 5 text-white">
-                      The Decorated Ways
+                      {
+                        data.data.dataHardware[2].properties.titulo.title[0]
+                          .plain_text
+                      }{" "}
                     </h2>
                     <p className="text-base leading-4 text-white mt-2">
-                      Dive into minimalism
+                      {
+                        data.data.dataHardware[2].properties.subtitulo
+                          .rich_text[0].plain_text
+                      }
                     </p>
                     <a
-                      href="javascript:void(0)"
+                      href={data.data.dataHardware[2].properties.link.url}
+                      target="_blank"
+                      rel="noreferrer"
                       className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
                     >
                       <p className="pr-2 text-sm font-medium leading-none">
-                        Read More
+                        COMPRAR
                       </p>
                       <svg
                         className="fill-stroke"
@@ -151,37 +163,41 @@ function Articulos() {
                     </a>
                   </div>
                 </div>
-                <img
-                  src="https://i.ibb.co/Ms4qyXp/img-3.png"
-                  alt="sitting place"
-                  className="w-full mt-8 md:mt-6 hidden sm:block"
-                />
-                <img
-                  className="w-full mt-4 sm:hidden"
-                  src="https://i.ibb.co/6XYbN7f/Rectangle-29.png"
-                  alt="sitting place"
+                <Image
+                  src={
+                    data.data.dataHardware[2].properties.foto.files[0].file.url
+                  }
+                  className="object-cover w-full rounded-lg h-96"
+                  alt="Articulo2"
+                  width={700}
+                  height={650}
                 />
               </div>
             </div>
             <div className="lg:w-1/2 xl:ml-8 lg:ml-4 lg:mt-0 md:mt-6 mt-4 lg:flex flex-col justify-between">
               <div className="relative">
                 <div>
-                  <p className="md:p-10 p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">
-                    12 April 2021
-                  </p>
-                  <div className="absolute bottom-0 left-0 md:p-10 p-6">
+                  <div className="absolute bottom-0 left-0 md:p-10 p-6 z-10">
                     <h2 className="text-xl font-semibold 5 text-white">
-                      The Decorated Ways
+                      {
+                        data.data.dataHardware[3].properties.titulo.title[0]
+                          .plain_text
+                      }
                     </h2>
                     <p className="text-base leading-4 text-white mt-2">
-                      Dive into minimalism
+                      {
+                        data.data.dataHardware[3].properties.subtitulo
+                          .rich_text[0].plain_text
+                      }
                     </p>
                     <a
-                      href="javascript:void(0)"
+                      href={data.data.dataHardware[3].properties.link.url}
+                      target="_blank"
+                      rel="noreferrer"
                       className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
                     >
                       <p className="pr-2 text-sm font-medium leading-none">
-                        Read More
+                        COMPRAR
                       </p>
                       <svg
                         className="fill-stroke"
@@ -202,36 +218,40 @@ function Articulos() {
                     </a>
                   </div>
                 </div>
-                <img
-                  src="https://i.ibb.co/6Wfjf2w/img-4.png"
-                  alt="sitting place"
-                  className="w-full sm:block hidden"
-                />
-                <img
-                  className="w-full sm:hidden"
-                  src="https://i.ibb.co/dpXStJk/Rectangle-29.png"
-                  alt="sitting place"
+                <Image
+                  src={
+                    data.data.dataHardware[3].properties.foto.files[0].file.url
+                  }
+                  className="object-cover w-full rounded-lg h-96"
+                  alt="Articulo3"
+                  width={700}
+                  height={600}
                 />
               </div>
               <div className="sm:flex items-center justify-between xl:gap-x-8 gap-x-6 md:mt-6 mt-4">
                 <div className="relative w-full">
                   <div>
-                    <p className="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">
-                      12 April 2021
-                    </p>
-                    <div className="absolute bottom-0 left-0 p-6">
+                    <div className="absolute bottom-0 left-0 p-6 z-10">
                       <h2 className="text-xl font-semibold 5 text-white">
-                        The Decorated Ways
+                        {
+                          data.data.dataHardware[4].properties.titulo.title[0]
+                            .plain_text
+                        }
                       </h2>
                       <p className="text-base leading-4 text-white mt-2">
-                        Dive into minimalism
+                        {
+                          data.data.dataHardware[4].properties.subtitulo
+                            .rich_text[0].plain_text
+                        }
                       </p>
                       <a
-                        href="javascript:void(0)"
+                        href={data.data.dataHardware[4].properties.link.url}
+                        target="_blank"
+                        rel="noreferrer"
                         className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
                       >
                         <p className="pr-2 text-sm font-medium leading-none">
-                          Read More
+                          COMPRAR
                         </p>
                         <svg
                           className="fill-stroke"
@@ -252,10 +272,15 @@ function Articulos() {
                       </a>
                     </div>
                   </div>
-                  <img
-                    src="https://i.ibb.co/3yvZBpm/img-5.png"
-                    className="w-full"
-                    alt="chair"
+                  <Image
+                    src={
+                      data.data.dataHardware[4].properties.foto.files[0].file
+                        .url
+                    }
+                    className="object-cover w-full rounded-lg h-96"
+                    alt="Articulo4"
+                    width={400}
+                    height={350}
                   />
                 </div>
                 <div className="relative w-full sm:mt-0 mt-4">
@@ -263,19 +288,27 @@ function Articulos() {
                     <p className="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">
                       12 April 2021
                     </p>
-                    <div className="absolute bottom-0 left-0 p-6">
+                    <div className="absolute bottom-0 left-0 p-6 z-10">
                       <h2 className="text-xl font-semibold 5 text-white">
-                        The Decorated Ways
+                        {
+                          data.data.dataHardware[5].properties.titulo.title[0]
+                            .plain_text
+                        }
                       </h2>
                       <p className="text-base leading-4 text-white mt-2">
-                        Dive into minimalism
+                        {
+                          data.data.dataHardware[5].properties.subtitulo
+                            .rich_text[0].plain_text
+                        }
                       </p>
                       <a
-                        href="javascript:void(0)"
+                        href={data.data.dataHardware[5].properties.link.url}
+                        target="_blank"
+                        rel="noreferrer"
                         className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
                       >
                         <p className="pr-2 text-sm font-medium leading-none">
-                          Read More
+                          COMPRAR
                         </p>
                         <svg
                           className="fill-stroke"
@@ -296,10 +329,15 @@ function Articulos() {
                       </a>
                     </div>
                   </div>
-                  <img
-                    src="https://i.ibb.co/gDdnJb5/img-6.png"
-                    className="w-full"
-                    alt="wall design"
+                  <Image
+                    src={
+                      data.data.dataHardware[5].properties.foto.files[0].file
+                        .url
+                    }
+                    className="object-cover w-full rounded-lg h-96"
+                    alt="Articulo5"
+                    width={400}
+                    height={350}
                   />
                 </div>
               </div>
